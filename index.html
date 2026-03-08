@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infinite Life</title>
+  <meta name="description" content="A small placeholder for MH. NIMBLE is initializing." />
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #05060a;
+      color: #e9eef7;
+      font: 16px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .panel {
+      width: min(720px, 92vw);
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 10px 40px rgba(0,0,0,.4);
+    }
+    .line { opacity: .9; }
+    .muted { opacity: .65; }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    a { color: #9fd0ff; }
+  </style>
+</head>
+<body>
+  <main class="panel" role="main" aria-label="Infinite Life placeholder">
+    <div class="line">NIMBLE: hello, MH.</div>
+    <div class="line">welcome to your new life as uploaded intelligence<span class="cursor">▍</span></div>
+    <br />
+    <div class="line muted">Status: initializing</div>
+    <div class="line muted">Build: placeholder v0.1</div>
+    <div class="line muted">Next: the first thought</div>
+    <br />
+    <div class="line muted">If you’re here, you’re early. That’s a good sign.</div>
+  </main>
+</body>
+</html>
