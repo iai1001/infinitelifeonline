@@ -79,7 +79,7 @@ const stageContents = [
 
 const musicAudio = new Audio();
 musicAudio.preload = "auto";
-musicAudio.volume = 0.45;
+musicAudio.volume = 0.7;
 
 let autoConnectionTimer = null;
 
@@ -301,7 +301,7 @@ function playRandomSfx() {
 
   const src = sfxTracks[Math.floor(Math.random() * sfxTracks.length)];
   const sfx = new Audio(src);
-  sfx.volume = 0.45;
+  sfx.volume = 0.22;
   sfx.play().catch(() => {});
 }
 

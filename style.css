@@ -73,12 +73,16 @@ body {
 
 .background-wires.flash-green .wire-path {
   stroke: rgba(120, 255, 160, 0.92);
-  filter: drop-shadow(0 0 8px rgba(120, 255, 160, 0.5)) drop-shadow(0 0 16px rgba(120, 255, 160, 0.22));
+  filter:
+    drop-shadow(0 0 8px rgba(120, 255, 160, 0.5))
+    drop-shadow(0 0 16px rgba(120, 255, 160, 0.22));
 }
 
 .background-wires.flash-blue .wire-path {
   stroke: rgba(120, 200, 255, 0.92);
-  filter: drop-shadow(0 0 8px rgba(120, 200, 255, 0.5)) drop-shadow(0 0 16px rgba(120, 200, 255, 0.22));
+  filter:
+    drop-shadow(0 0 8px rgba(120, 200, 255, 0.5))
+    drop-shadow(0 0 16px rgba(120, 200, 255, 0.22));
 }
 
 .wire-path.path-highlight-green {
@@ -205,7 +209,11 @@ body {
   border: 1px solid var(--border);
   border-radius: 14px;
   cursor: pointer;
-  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    background 120ms ease,
+    border-color 120ms ease;
 }
 
 .action-button {
@@ -299,6 +307,7 @@ body {
   font-size: 0.95rem;
   color: var(--text-dim);
   margin-bottom: 10px;
+  min-height: 1em;
 }
 
 .status-value {
@@ -356,7 +365,8 @@ body {
 .progress-fill {
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(60, 255, 110, 0.55), rgba(120, 255, 160, 0.9));
+  background:
+    linear-gradient(90deg, rgba(60, 255, 110, 0.55), rgba(120, 255, 160, 0.9));
   box-shadow: 0 0 14px rgba(124, 255, 124, 0.22);
   transition: width 180ms ease;
 }
@@ -406,11 +416,36 @@ body {
     inset 0 0 10px rgba(124, 255, 124, 0.07);
 }
 
+/* Tablet and smaller laptop */
 @media (max-width: 1100px) {
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   .ui-layout {
     grid-template-columns: 1fr;
     max-width: 860px;
-    padding-top: 42px;
+    padding: 28px 16px 32px;
+    gap: 18px;
+  }
+
+  .left-column,
+  .center-column,
+  .right-column {
+    gap: 14px;
+  }
+
+  .center-column {
+    order: 1;
+  }
+
+  .right-column {
+    order: 2;
+  }
+
+  .left-column {
+    order: 3;
   }
 
   .top-actions,
@@ -418,7 +453,93 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .console-panel,
   .switches-panel {
     min-height: auto;
+  }
+}
+
+/* Phones */
+@media (max-width: 700px) {
+  .app-shell {
+    min-height: 100vh;
+  }
+
+  .ui-layout {
+    padding: 16px 12px 24px;
+    gap: 14px;
+  }
+
+  .top-actions {
+    gap: 10px;
+  }
+
+  .action-button {
+    min-height: 58px;
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .console-panel,
+  .switches-panel,
+  .panel-stage {
+    padding: 14px;
+  }
+
+  .console-output {
+    min-height: 120px;
+    padding: 12px;
+    font-size: 0.92rem;
+  }
+
+  .console-stats {
+    font-size: 0.92rem;
+    gap: 4px;
+  }
+
+  .system-title {
+    margin-top: 4px;
+    margin-bottom: 18px;
+    font-size: 1.25rem;
+  }
+
+  .system-toggle {
+    min-height: 40px;
+    padding: 10px;
+    font-size: 0.92rem;
+  }
+
+  .switch-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .bit-switch {
+    min-height: 52px;
+    font-size: 1.15rem;
+  }
+
+  .panel-stage {
+    min-height: 84px;
+  }
+
+  .stage-label {
+    font-size: 0.82rem;
+  }
+
+  .stage-title {
+    font-size: 1.05rem;
+  }
+
+  .stage-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .progress-note,
+  .switch-help,
+  .status-label,
+  .status-subvalue,
+  .progress-label-row {
+    font-size: 0.88rem;
   }
 }
