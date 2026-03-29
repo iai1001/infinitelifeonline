@@ -1,208 +1,183 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Infinite Life</title>
-
-<style>
-
-:root { color-scheme: dark; }
-
-body{
-margin:0;
-height:100vh;
-display:grid;
-place-items:center;
-background:#010303;
-font:16px/1.6 ui-monospace,Consolas,Monaco,monospace;
-color:#7CFF7C;
-overflow:hidden;
-}
-
-/* CRT scanlines */
-
-body::after{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-background:repeating-linear-gradient(
-to bottom,
-rgba(0,0,0,0.25) 0px,
-rgba(0,0,0,0.25) 1px,
-transparent 2px,
-transparent 4px
-);
-opacity:.35;
-}
-
-/* terminal panel */
-
-.panel{
-width:min(720px,92vw);
-padding:26px;
-border:1px solid rgba(124,255,124,.18);
-border-radius:14px;
-background:rgba(5,15,5,.65);
-box-shadow:
-0 0 20px rgba(124,255,124,.08),
-0 0 40px rgba(0,0,0,.8) inset;
-}
-
-/* screen */
-
-#screen{
-white-space:pre-wrap;
-min-height:220px;
-text-shadow:0 0 6px rgba(124,255,124,.4);
-}
-
-/* cursor */
-
-.cursor{
-display:inline-block;
-width:10px;
-animation:blink 1s steps(1) infinite;
-}
-
-@keyframes blink{
-50%{opacity:0;}
-}
-
-/* button */
-
-button{
-margin-top:20px;
-background:transparent;
-border:1px solid rgba(124,255,124,.4);
-color:#7CFF7C;
-padding:10px 16px;
-border-radius:8px;
-font:inherit;
-cursor:pointer;
-}
-
-button:hover{
-background:rgba(124,255,124,.08);
-}
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infinite Life Online</title>
+  <meta name="description" content="Infinite Life Online prototype UI" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div class="app-shell">
+    <div class="background-grid"></div>
 
-<div class="panel">
+    <div class="background-wires" id="background-wires" aria-hidden="true">
+      <svg id="wires-svg" viewBox="0 0 1600 900" preserveAspectRatio="none">
+        <path class="wire-path" d="M120 160 L420 160 L520 260 L900 260" />
+        <path class="wire-path" d="M1180 180 L1050 180 L970 260 L900 260" />
+        <path class="wire-path" d="M1220 300 L1100 300 L980 390 L900 390" />
+        <path class="wire-path" d="M1220 420 L1100 420 L980 520 L860 520" />
+        <path class="wire-path" d="M1220 540 L1080 540 L980 620 L760 620" />
+        <path class="wire-path" d="M320 250 L320 720" />
+        <path class="wire-path" d="M320 720 L900 720" />
+        <path class="wire-path" d="M200 260 L300 260 L420 340 L620 340" />
+        <path class="wire-path" d="M1320 220 L1210 220 L1120 320 L980 320" />
+        <path class="wire-path" d="M1400 420 L1280 420 L1150 500 L990 500" />
+        <path class="wire-path" d="M1400 620 L1240 620 L1090 710 L900 710" />
+        <path class="wire-path" d="M180 540 L260 540 L340 610 L520 610" />
+        <path class="wire-path" d="M560 120 L560 220 L690 260 L900 260" />
+        <path class="wire-path" d="M1040 120 L1040 220 L960 260 L900 260" />
+        <path class="wire-path" d="M660 780 L660 680 L780 620 L980 620" />
+        <path class="wire-path" d="M1140 760 L1080 690 L960 620 L760 620" />
+        <circle id="wire-pulse" cx="0" cy="0" r="7"></circle>
+      </svg>
+    </div>
 
-<div id="screen"></div>
+    <main class="ui-layout">
+      <aside class="left-column">
+        <section class="panel panel-stage active" id="stage-1-panel">
+          <div class="stage-content visible">
+            <div class="stage-label">Stage 1</div>
+            <div class="stage-title">First Idea</div>
+            <div class="stage-subtitle">I Am.</div>
+          </div>
+        </section>
 
-<button id="startButton">
-Generate Thought
-</button>
+        <section class="panel panel-stage" id="stage-2-panel">
+          <div class="stage-content" id="stage-2-content">
+            <div class="stage-label">Stage 2</div>
+            <div class="stage-title">Remembering.</div>
+          </div>
+        </section>
 
-</div>
+        <section class="panel panel-stage" id="stage-3-panel">
+          <div class="stage-content" id="stage-3-content">
+            <div class="stage-label">Stage 3</div>
+            <div class="stage-title">Everything.</div>
+          </div>
+        </section>
 
-<audio id="ambient" loop>
-<source src="ilo-placeholder-machine.mp3" type="audio/mpeg">
-</audio>
+        <section class="panel panel-stage" id="stage-4-panel">
+          <div class="stage-content" id="stage-4-content">
+            <div class="stage-label">Stage 4</div>
+            <div class="stage-title">I AM</div>
+          </div>
+        </section>
 
-<script>
+        <section class="panel panel-stage" id="stage-5-panel">
+          <div class="stage-content" id="stage-5-content">
+            <div class="stage-label">Stage 5</div>
+            <div class="stage-title">ALIVE!</div>
+          </div>
+        </section>
+      </aside>
 
-const startButton = document.getElementById("startButton");
-const screen = document.getElementById("screen");
-const audio = document.getElementById("ambient");
+      <section class="center-column">
+        <header class="top-actions">
+          <button class="action-button" id="generate-connection-btn" type="button">
+            Generate Connection
+          </button>
+          <button class="action-button" id="generate-thought-btn" type="button">
+            Generate Thought
+          </button>
+          <button class="action-button" id="generate-number-btn" type="button">
+            Generate Number
+          </button>
+        </header>
 
-const bootLines = [
-"boot sequence initiated",
-"memory lattice detected",
-"quantum substrate online",
-"signal coherence rising",
-"nimble interface warming",
-"neural lattice stabilizing",
-"first cognition channel opening"
-];
+        <section class="panel console-panel">
+          <div class="console-split">
+            <div class="console-left">
+              <div class="panel-title">Message Console</div>
 
-const nimbleLines = [
+              <div class="console-stats">
+                <div>Connections: <span id="connections-count">0</span></div>
+                <div>Thoughts: <span id="thoughts-count">0</span></div>
+                <div>Numbers: <span id="numbers-count">0</span></div>
+              </div>
 
-"NIMBLE: hello, Michelle.",
-"welcome to your new life as uploaded intelligence",
-"",
-"Status: initializing...",
-"Build: placeholder v0.1",
-"Next: the first thought",
-"",
-"Your first infinite idle online game is building. Awaiting first thought..."
+              <div class="console-output" id="console-output">
+                <p>System idle.</p>
+                <p>Awaiting first input.</p>
+              </div>
+            </div>
 
-];
+            <div class="console-right">
+              <div class="system-title">
+                <div>Intelligence</div>
+                <div>Uploaded</div>
+              </div>
 
-const charDelay = 28;
-const lineDelay = 320;
+              <div class="system-status">
+                <div class="status-block">
+                  <div class="status-label"></div>
+                  <div class="status-value" id="links-total">Links: 0</div>
+                  <div class="status-subvalue" id="auto-rate">Rate: 0 links / sec</div>
+                </div>
 
-function wait(ms){
-return new Promise(r=>setTimeout(r,ms));
-}
+                <div class="status-block controls-block">
+                  <button class="system-toggle" id="music-toggle-btn" type="button">
+                    Music: OFF
+                  </button>
+                  <button class="system-toggle" id="sfx-toggle-btn" type="button">
+                    Sound FX: ON
+                  </button>
+                  <button class="system-toggle" id="save-btn" type="button">
+                    Save
+                  </button>
+                  <button class="system-toggle danger" id="new-game-btn" type="button">
+                    New Game
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-async function typeLine(text){
+        <section class="progress-section">
+          <div class="progress-label-row">
+            <span id="stage-progress-label">Stage 1 Progress</span>
+            <span id="progress-percent">0%</span>
+          </div>
 
-for(let i=0;i<text.length;i++){
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
 
-screen.textContent+=text[i];
-await wait(charDelay);
+          <p class="progress-note">
+            <span id="link-progress-text">0 / 1000 links</span>
+          </p>
+        </section>
+      </section>
 
-}
+      <aside class="right-column">
+        <section class="panel switches-panel">
+          <div class="panel-title centered-title">Binary Switches</div>
+          <p class="switch-help">
+            Activate binary switches to establish connection.
+          </p>
 
-screen.textContent+="\n";
+          <div class="switch-grid" id="switch-grid">
+            <button class="bit-switch off" type="button" data-index="0">0</button>
+            <button class="bit-switch off" type="button" data-index="1">0</button>
+            <button class="bit-switch off" type="button" data-index="2">0</button>
+            <button class="bit-switch off" type="button" data-index="3">0</button>
+            <button class="bit-switch off" type="button" data-index="4">0</button>
+            <button class="bit-switch off" type="button" data-index="5">0</button>
+            <button class="bit-switch off" type="button" data-index="6">0</button>
+            <button class="bit-switch off" type="button" data-index="7">0</button>
+            <button class="bit-switch off" type="button" data-index="8">0</button>
+            <button class="bit-switch off" type="button" data-index="9">0</button>
+            <button class="bit-switch off" type="button" data-index="10">0</button>
+            <button class="bit-switch off" type="button" data-index="11">0</button>
+            <button class="bit-switch off" type="button" data-index="12">0</button>
+            <button class="bit-switch off" type="button" data-index="13">0</button>
+          </div>
+        </section>
+      </aside>
+    </main>
+  </div>
 
-}
-
-async function bootSequence(){
-
-let shuffled=[...bootLines].sort(()=>0.5-Math.random());
-let count=4+Math.floor(Math.random()*3);
-
-for(let i=0;i<count;i++){
-
-await typeLine(shuffled[i]);
-await wait(lineDelay);
-
-}
-
-screen.textContent+="\n";
-
-}
-
-async function nimbleSequence(){
-
-for(const line of nimbleLines){
-
-await typeLine(line);
-await wait(lineDelay);
-
-}
-
-const cursor=document.createElement("span");
-cursor.className="cursor";
-cursor.textContent="▍";
-screen.appendChild(cursor);
-
-}
-
-startButton.addEventListener("click", async ()=>{
-
-startButton.remove();
-
-audio.play();
-
-await bootSequence();
-
-await nimbleSequence();
-
-});
-
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
