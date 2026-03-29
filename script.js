@@ -90,11 +90,11 @@ function getLinksTotal() {
 function getCurrentStageIndex() {
   const links = getLinksTotal();
 
-  if (links >= STAGE_THRESHOLDS[4]) return 4;
-  if (links >= STAGE_THRESHOLDS[3]) return 3;
-  if (links >= STAGE_THRESHOLDS[2]) return 2;
-  if (links >= STAGE_THRESHOLDS[1]) return 1;
-  return 0;
+  if (links >= 1000000) return 4; // Stage 5
+  if (links >= 100000) return 3;  // Stage 4
+  if (links >= 10000) return 2;   // Stage 3
+  if (links >= 1000) return 1;    // Stage 2
+  return 0;                       // Stage 1
 }
 
 function getCurrentStageNumber() {
