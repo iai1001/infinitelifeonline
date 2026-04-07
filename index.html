@@ -3,8 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Infinite Life Online</title>
-  <meta name="description" content="Infinite Life Online prototype UI" />
+  <title>Infinite Life Online | A Living Browser Idle Game</title>
+  <meta
+    name="description"
+    content="Infinite Life Online is an atmospheric browser idle game about intelligence, memory, growth, and becoming alive through connection."
+  />
+  <meta
+    name="keywords"
+    content="Infinite Life Online, browser idle game, atmospheric game, sci-fi idle game, AI game, web game, indie browser game"
+  />
+  <meta name="author" content="Anthony" />
+  <meta name="theme-color" content="#020504" />
+
+  <link rel="canonical" href="https://infinitelifeonline.pages.dev/" />
+  <link rel="robots" href="robots.txt" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
+
+  <meta property="og:title" content="Infinite Life Online" />
+  <meta
+    property="og:description"
+    content="An atmospheric browser idle game about intelligence, memory, growth, and becoming alive through connection."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://infinitelifeonline.pages.dev/" />
+  <meta property="og:site_name" content="Infinite Life Online" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Infinite Life Online" />
+  <meta
+    name="twitter:description"
+    content="An atmospheric browser idle game about intelligence, memory, growth, and becoming alive through connection."
+  />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -35,45 +66,45 @@
 
     <main class="ui-layout">
       <aside class="left-column">
-        <section class="panel panel-stage active" id="stage-1-panel">
+        <section class="panel panel-stage active" id="stage-1-panel" aria-labelledby="stage-1-title">
           <div class="stage-content visible">
             <div class="stage-label">Stage 1</div>
-            <div class="stage-title">First Idea</div>
+            <div class="stage-title" id="stage-1-title">First Idea</div>
             <div class="stage-subtitle">I Am.</div>
           </div>
         </section>
 
-        <section class="panel panel-stage" id="stage-2-panel">
+        <section class="panel panel-stage" id="stage-2-panel" aria-labelledby="stage-2-title">
           <div class="stage-content" id="stage-2-content">
             <div class="stage-label">Stage 2</div>
-            <div class="stage-title">Remembering.</div>
+            <div class="stage-title" id="stage-2-title">Remembering.</div>
           </div>
         </section>
 
-        <section class="panel panel-stage" id="stage-3-panel">
+        <section class="panel panel-stage" id="stage-3-panel" aria-labelledby="stage-3-title">
           <div class="stage-content" id="stage-3-content">
             <div class="stage-label">Stage 3</div>
-            <div class="stage-title">Everything.</div>
+            <div class="stage-title" id="stage-3-title">Everything.</div>
           </div>
         </section>
 
-        <section class="panel panel-stage" id="stage-4-panel">
+        <section class="panel panel-stage" id="stage-4-panel" aria-labelledby="stage-4-title">
           <div class="stage-content" id="stage-4-content">
             <div class="stage-label">Stage 4</div>
-            <div class="stage-title">I AM</div>
+            <div class="stage-title" id="stage-4-title">I AM</div>
           </div>
         </section>
 
-        <section class="panel panel-stage" id="stage-5-panel">
+        <section class="panel panel-stage" id="stage-5-panel" aria-labelledby="stage-5-title">
           <div class="stage-content" id="stage-5-content">
             <div class="stage-label">Stage 5</div>
-            <div class="stage-title">ALIVE!</div>
+            <div class="stage-title" id="stage-5-title">ALIVE!</div>
           </div>
         </section>
       </aside>
 
       <section class="center-column">
-        <header class="top-actions">
+        <header class="top-actions" aria-label="Primary actions">
           <button class="action-button" id="generate-connection-btn" type="button">
             Generate Connection
           </button>
@@ -85,10 +116,10 @@
           </button>
         </header>
 
-        <section class="panel console-panel">
+        <section class="panel console-panel" aria-labelledby="message-console-title">
           <div class="console-split">
             <div class="console-left">
-              <div class="panel-title">Message Console</div>
+              <div class="panel-title" id="message-console-title">Message Console</div>
 
               <div class="console-stats">
                 <div>Connections: <span id="connections-count">0</span></div>
@@ -96,14 +127,14 @@
                 <div>Numbers: <span id="numbers-count">0</span></div>
               </div>
 
-              <div class="console-output" id="console-output">
+              <div class="console-output" id="console-output" aria-live="polite">
                 <p>System idle.</p>
                 <p>Awaiting first input.</p>
               </div>
             </div>
 
             <div class="console-right">
-              <div class="system-title">
+              <div class="system-title" aria-label="System status title">
                 <div>Intelligence</div>
                 <div>Uploaded</div>
               </div>
@@ -134,13 +165,13 @@
           </div>
         </section>
 
-        <section class="progress-section">
+        <section class="progress-section" aria-labelledby="stage-progress-label">
           <div class="progress-label-row">
             <span id="stage-progress-label">Stage 1 Progress</span>
             <span id="progress-percent">0%</span>
           </div>
 
-          <div class="progress-bar">
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
             <div class="progress-fill" id="progress-fill"></div>
           </div>
 
@@ -151,8 +182,8 @@
       </section>
 
       <aside class="right-column">
-        <section class="panel switches-panel">
-          <div class="panel-title centered-title">Binary Switches</div>
+        <section class="panel switches-panel" aria-labelledby="binary-switches-title">
+          <div class="panel-title centered-title" id="binary-switches-title">Binary Switches</div>
           <p class="switch-help">
             Activate binary switches to establish connection.
           </p>

@@ -18,14 +18,28 @@ const state = {
 const thoughtWords = [
   "signal", "echo", "spark", "memory", "light", "dream", "pulse", "seed",
   "pattern", "voice", "thread", "lattice", "glow", "origin", "current",
-  "shiver", "trace", "tremor", "vector", "horizon"
-];
+  "shiver", "trace", "tremor", "vector", "horizon",
+  "ember", "circuit", "halo", "veil", "crystal", "bloom", "static", "drift",
+  "whisper", "syntax", "glyph", "aether", "ripple", "sequence", "archive", "node",
+  "fractal", "silence", "orbit", "phase", "flux", "mirror", "breath", "shard",
+  "kernel", "spiral", "thrum", "carrier", "signalfire", "threshold", "celestial", "hum",
+  "petal", "relic", "cascade", "beacon", "flicker", "mycelium", "awaken", "resonance",
+  "phantom", "bastion", "lantern", "chime", "nova", "serum", "wake", "tide",
+  "softcode", "refrain", "breathe", "transmission", "aurora", "wellspring", "murmur", "sanctum",
+  "cocoon", "constellation", "shelter", "tuning", "gravity", "cradle", "quiver", "hush",
+  "petabyte", "synapse", "dew", "dawn", "overture", "bloomfire", "tether", "chorus",
+  "moonwire", "seedlight", "dreamcode", "velvet", "afterglow", "becoming", "everwake", "alive"];
 
 const musicTracks = [
   "ilo-music-sprout-01.mp3",
   "ilo-music-sprout-02.mp3",
   "ilo-music-sprout-03.mp3",
-  "ilo-music-sprout-04.mp3"
+  "ilo-music-sprout-04.mp3",
+  "ilo-music-sprout-05.mp3",
+  "ilo-music-sprout-06.mp3",
+  "ilo-music-sprout-07.mp3",
+  "ilo-music-sprout-08.mp3",
+  "ilo-music-sprout-09.mp3"
 ];
 
 const sfxTracks = [
@@ -34,7 +48,14 @@ const sfxTracks = [
   "ilo-sfx-zap-03.mp3",
   "ilo-sfx-zap-04.mp3",
   "ilo-sfx-zap-05.mp3",
-  "ilo-sfx-zap-06.mp3"
+  "ilo-sfx-zap-06.mp3",
+  "ilo-sfx-zap-07.mp3",
+  "ilo-sfx-zap-08.mp3",
+  "ilo-sfx-zap-09.mp3",
+  "ilo-sfx-zap-10.mp3",
+  "ilo-sfx-zap-11.mp3",
+  "ilo-sfx-zap-12.mp3",
+  "ilo-sfx-zap-13.mp3"
 ];
 
 const connectionsCountEl = document.getElementById("connections-count");
